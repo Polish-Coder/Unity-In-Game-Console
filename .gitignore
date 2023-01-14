@@ -67,5 +67,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+/TextMesh Pro/
+TextMesh Pro.meta
+
 LICENSE.meta
 README.md.meta
