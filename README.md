@@ -6,7 +6,12 @@ This is a simple in-game console for Unity games. It allows you to easily add co
 
 1. Download the package and import it into your Unity project.
 2. Add the `Console Canvas` prefab from `Prefabs` folder to your scene.
-3. To create a new command, create a new C# script and inherit from the `Command` class. Example below.
+3. To create a new command, create a new C# script and inherit from the `Command` class. See [example](#examples).
+
+## Requirements
+
+- Unity v. 2020 or newer
+- TextMeshPro v. 3.0.5 or newer
 
 ## Examples
 
