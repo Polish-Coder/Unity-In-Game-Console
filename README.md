@@ -8,6 +8,7 @@ This is a simple in-game console for Unity games. It allows you to easily add co
 2. Add the `Console Canvas` prefab from `Prefabs` folder to your scene.
 3. Add **Console Opener** script to the scene from `Examples` folder or create a new one.  See [example](#console-openers).
 4. To create a new command, create a new C# script and inherit from the `Command` class. See [example](#commands).
+
 **Note**: all command files must be placed in package folder.
 
 ## Requirements
