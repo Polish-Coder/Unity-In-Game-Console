@@ -60,13 +60,18 @@ namespace InGameConsole
 
             if(input == string.Empty) return;
 
-            Write("> " + input);
+            Write(TextStyle.DefaultDarker("> " + input));
 
             string commandName = input.Split(' ')[0];
             
             Command command = Commands.Find(x => x.Name == commandName);
 
-            if (command == null) return;
+            if (command == null)
+            {
+                Write(TextStyle.Error("The specified command was not found."));
+                
+                return;
+            }
 
             string[] args = input.Split(' ').Skip(1).ToArray();
             

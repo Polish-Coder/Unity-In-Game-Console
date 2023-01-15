@@ -9,11 +9,11 @@ public class LogCommand : Command
     {
         if (args.Length == 0)
         {
-            Console.Write("No arguments given.");
+            Console.Write(TextStyle.Error("No arguments given."));
 
             return;
         }
 
-        Console.Write(string.Join(" ", args));
+        Console.Write(TextStyle.Default(string.Join(" ", args)));
     }
 }

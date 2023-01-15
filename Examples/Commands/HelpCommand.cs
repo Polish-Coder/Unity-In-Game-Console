@@ -9,7 +9,7 @@ public class HelpCommand : Command
     {
         foreach (Command command in Console.Commands)
         {
-            Console.Write(command.Name + " - " + command.Description);
+            Console.Write(TextStyle.Info(command.Name) + " - " + TextStyle.Default(command.Description));
         }
     }
 }
