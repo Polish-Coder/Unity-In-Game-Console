@@ -28,5 +28,15 @@ namespace InGameConsole
         {
             return $"<color=#{ColorUtility.ToHtmlStringRGBA(ConsoleData.instance.ErrorColor)}>{text}</color>";
         }
+        
+        public static string FatalError(string text)
+        {
+            return Bold(Error(text));
+        }
+        
+        public static string Bold(string text)
+        {
+            return $"<b>{text}</b>";
+        }
     }
 }
