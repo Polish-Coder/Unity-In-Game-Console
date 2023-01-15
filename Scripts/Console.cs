@@ -13,7 +13,8 @@ namespace InGameConsole
         private static TMP_Text _output;
 
         private static List<Command> _commands;
-        
+        public static List<Command> Commands => _commands;
+
         private static Console _instance;
 
         private void Awake()
