@@ -9,6 +9,8 @@ namespace InGameConsole
 {
     public class Console : MonoBehaviour
     {
+        private static bool _isOpen;
+        
         private static TMP_InputField _input;
         private static TMP_Text _output;
 
@@ -37,6 +39,9 @@ namespace InGameConsole
             _output = transform.Find("Console/Output Field/Text").GetComponent<TMP_Text>();
 
             _input.onSubmit.AddListener(ExecuteCommand);
+
+            _isOpen = true;
+            OpenOrClose();
         }
 
         private static void RegisterCommands()
@@ -86,6 +91,13 @@ namespace InGameConsole
         public static void Clear()
         {
             _output.text = "";
+        }
+
+        public static void OpenOrClose()
+        {
+            _isOpen = !_isOpen;
+            
+            _instance.transform.GetChild(0).gameObject.SetActive(_isOpen);
         }
     }
 }

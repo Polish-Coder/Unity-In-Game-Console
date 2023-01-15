@@ -385,10 +385,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7049133204190756424, guid: aa29becafe819b04aa2d11128940d181, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7049133205210842753, guid: aa29becafe819b04aa2d11128940d181, type: 3}
       propertyPath: m_Name
       value: Console Canvas
