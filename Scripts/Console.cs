@@ -12,8 +12,7 @@ namespace InGameConsole
         private static TMP_InputField _input;
         private static TMP_Text _output;
 
-        private static List<Command> _commands;
-        public static List<Command> Commands => _commands;
+        public static List<Command> Commands { get; private set; }
 
         private static Console _instance;
 
@@ -28,7 +27,7 @@ namespace InGameConsole
                 Destroy(this);
             }
             
-            _commands = new List<Command>();
+            Commands = new List<Command>();
             RegisterCommands();
         }
 
@@ -49,7 +48,7 @@ namespace InGameConsole
             foreach (var commandType in commandTypes)
             {
                 var command = Activator.CreateInstance(commandType) as Command;
-                _commands.Add(command);
+                Commands.Add(command);
             }
         }
         
@@ -59,11 +58,13 @@ namespace InGameConsole
 
             _input.SetTextWithoutNotify("");
 
+            if(input == string.Empty) return;
+
             Write("> " + input);
 
             string commandName = input.Split(' ')[0];
             
-            Command command = _commands.Find(x => x.Name == commandName);
+            Command command = Commands.Find(x => x.Name == commandName);
 
             if (command == null) return;
 
