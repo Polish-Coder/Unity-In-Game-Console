@@ -14,6 +14,10 @@ This is a simple in-game console for Unity games. It allows you to easily add co
 - Unity v. 2020 or newer
 - TextMeshPro v. 3.0.5 or newer
 
+## Console Settings
+
+You can change console settings in `Edit > Project Settings > In-game Console`.
+
 ## Examples
 
 ### Commands
