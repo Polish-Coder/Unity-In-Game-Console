@@ -4,9 +4,10 @@ This is a simple in-game console for Unity games. It allows you to easily add co
 
 ## Getting started
 
-1. Download the package and import it into your Unity project.
+1. Download the package and put it into `Assets/Plugins` folder in your project.
 2. Add the `Console Canvas` prefab from `Prefabs` folder to your scene.
-3. To create a new command, create a new C# script and inherit from the `Command` class. See [example](#examples).
+3. Add **Console Opener** script to the scene from `Examples` folder or create a new one.  See [example](#console-openers).
+4. To create a new command, create a new C# script and inherit from the `Command` class. See [example](#commands).
 
 ## Requirements
 
@@ -14,6 +15,8 @@ This is a simple in-game console for Unity games. It allows you to easily add co
 - TextMeshPro v. 3.0.5 or newer
 
 ## Examples
+
+### Commands
 
 Check out the `Examples` folder for some sample commands. Here's an example command that prints specified text to the console:
 
@@ -37,4 +40,32 @@ public class LogCommand : Command
         Console.Write(string.Join(" ", args));
     }
 }
+```
+
+### Console Openers
+
+Here's an example console opener for default input system:
+
+```csharp
+private void Update()
+{
+    if (Input.GetKeyDown(KeyCode.F3))
+    {
+        Console.OpenOrClose();   
+    }
+}
+```
+
+Here's an example console opener for Unity Input System:
+
+```csharp
+private void Awake()
+{
+    inputs.Game.Console.performed += _ => Console.OpenOrClose();
+}
+```
+
+**Note**: to use the `Console` class you must use `InGameConsole` namespace:
+```csharp
+using InGameConsole;
 ```
