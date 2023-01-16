@@ -4,12 +4,10 @@ This is a simple in-game console for Unity games. It allows you to easily add co
 
 ## Getting started
 
-1. Download the package and put it into `Assets/Plugins` folder in your project.
+1. Download the package and put it into `Assets/Addons` folder in your project.
 2. Add the `Console Canvas` prefab from `Prefabs` folder to your scene.
 3. Add **Console Opener** script to the scene from `Examples` folder or create a new one.  See [example](#console-openers).
 4. To create a new command, create a new C# script and inherit from the `Command` class. See [example](#commands).
-
-**Note**: all command files must be placed in package folder.
 
 ## Requirements
 
@@ -24,7 +22,7 @@ You can change console settings in `Edit > Project Settings > In-game Console`.
 
 ### Commands
 
-All commands should be in the `Commands` folder. There are some example commands: `help`, `log` and `clear`. Here's an example command that prints specified text to the console:
+There are some example commands: `help`, `log` and `clear` in `Examples/Commands` folder. Here's an example command that prints specified text to the console:
 
 ```csharp
 using InGameConsole;
