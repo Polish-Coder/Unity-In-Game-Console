@@ -24,7 +24,7 @@ You can change console settings in `Edit > Project Settings > In-game Console`.
 
 ### Commands
 
-Check out the `Examples` folder for some sample commands. Here's an example command that prints specified text to the console:
+All commands should be in the `Commands` folder. There are some example commands: `help`, `log` and `clear`. Here's an example command that prints specified text to the console:
 
 ```csharp
 using InGameConsole;
