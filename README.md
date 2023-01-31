@@ -2,7 +2,13 @@
 
 This is a simple in-game console for Unity games. It allows you to easily add commands and execute them at runtime.
 
-![Console](https://i.imgur.com/HrkDYqB.png)
+## Features
+
+- Easy creation of custom commands
+- Simple configuration
+- Stacktrace output
+
+![Console](https://i.imgur.com/xoqeifI.png)
 
 ## Getting started
 
