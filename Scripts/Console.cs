@@ -67,7 +67,7 @@ namespace InGameConsole
 
             Write(TextStyle.DefaultDarker("> " + input));
 
-            string commandName = input.Split(' ')[0];
+            string commandName = input.Split(' ')[0].ToLower();
             
             Command command = Commands.Find(x => x.Name == commandName);
 
@@ -85,6 +85,8 @@ namespace InGameConsole
 
         private static void WriteDebugLogs(string text, string stackTrace, LogType type)
         {
+            if(!ConsoleData.instance.DisplayStacktrace) return;
+
             string title = type switch
             {
                 LogType.Log => TextStyle.Info(text),

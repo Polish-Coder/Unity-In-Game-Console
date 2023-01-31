@@ -12,6 +12,8 @@ namespace InGameConsole
         public Color32 WarningColor = new(255, 217, 0, 255);
         public Color32 ErrorColor = new(232, 42, 42, 255);
 
+        public bool DisplayStacktrace = true;
+
         public void SaveAsset()
         {
             Save(true);
