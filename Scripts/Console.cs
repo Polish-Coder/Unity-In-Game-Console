@@ -83,6 +83,19 @@ namespace InGameConsole
             command.Execute(args);
         }
 
+        private static void WriteDebugLogs(string text, string stackTrace, LogType type)
+        {
+            string title = type switch
+            {
+                LogType.Log => TextStyle.Info(text),
+                LogType.Warning => TextStyle.Warning(text),
+                LogType.Error => TextStyle.FatalError(text),
+                _ => TextStyle.Default(text)
+            };
+            
+            Write(title + "\n" + TextStyle.DefaultDarker(stackTrace));
+        }
+
         public static void Write(string text)
         {
             _output.text += text + "\n";
@@ -98,6 +111,16 @@ namespace InGameConsole
             _isOpen = !_isOpen;
             
             _instance.transform.GetChild(0).gameObject.SetActive(_isOpen);
+        }
+
+        private void OnEnable()
+        {
+            Application.logMessageReceived += WriteDebugLogs;
+        }
+
+        private void OnDisable()
+        {
+            Application.logMessageReceived -= WriteDebugLogs;
         }
     }
 }
