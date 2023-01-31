@@ -2,6 +2,8 @@
 
 This is a simple in-game console for Unity games. It allows you to easily add commands and execute them at runtime.
 
+![Console](https://i.imgur.com/HrkDYqB.png)
+
 ## Getting started
 
 1. Download the package and put it into `Assets/Addons` folder in your project.
