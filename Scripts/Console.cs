@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 namespace InGameConsole
@@ -13,6 +15,7 @@ namespace InGameConsole
         
         private static TMP_InputField _input;
         private static TMP_Text _output;
+        private static ScrollRect _outputScrollRect;
 
         public static List<Command> Commands { get; private set; }
 
@@ -36,12 +39,15 @@ namespace InGameConsole
         private void Start()
         {
             _input = transform.Find("Console/Input Field").GetComponent<TMP_InputField>();
-            _output = transform.Find("Console/Output Field/Text").GetComponent<TMP_Text>();
+            _output = transform.Find("Console/Output Field/Content/Text").GetComponent<TMP_Text>();
+            _outputScrollRect = transform.Find("Console/Output Field").GetComponent<ScrollRect>();
 
             _input.onSubmit.AddListener(ExecuteCommand);
 
             _isOpen = true;
             OpenOrClose();
+
+            Clear();
         }
 
         private static void RegisterCommands()
@@ -101,6 +107,8 @@ namespace InGameConsole
         public static void Write(string text)
         {
             _output.text += text + "\n";
+            
+            _instance.StartCoroutine(ReloadScrollRect());
         }
 
         public static void Clear()
@@ -113,6 +121,15 @@ namespace InGameConsole
             _isOpen = !_isOpen;
             
             _instance.transform.GetChild(0).gameObject.SetActive(_isOpen);
+        }
+
+        private static IEnumerator ReloadScrollRect()
+        {
+            _outputScrollRect.enabled = false;
+
+            yield return new WaitForEndOfFrame();
+            
+            _outputScrollRect.enabled = true;
         }
 
         private void OnEnable()
