@@ -97,11 +97,12 @@ namespace InGameConsole
             {
                 LogType.Log => TextStyle.Info(text),
                 LogType.Warning => TextStyle.Warning(text),
-                LogType.Error => TextStyle.FatalError(text),
+                LogType.Error => TextStyle.Error(text),
+                LogType.Exception => TextStyle.FatalError(text.Substring(0, text.IndexOf(":"))) + TextStyle.Error(text.Substring(text.IndexOf(":"))),
                 _ => TextStyle.Default(text)
             };
             
-            Write(title + "\n" + TextStyle.DefaultDarker(stackTrace));
+            Write(title + "\n" + TextStyle.Stacktrace(stackTrace));
         }
 
         public static void Write(string text)

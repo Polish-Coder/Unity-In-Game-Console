@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Text.RegularExpressions;
+using UnityEngine;
 
 namespace InGameConsole
 {
@@ -37,6 +38,21 @@ namespace InGameConsole
         public static string Bold(string text)
         {
             return $"<b>{text}</b>";
+        }
+
+        public static string Stacktrace(string text)
+        {
+            string typePattern = @"[(][a-z]+[)]";
+            string typeReplacement = "<color=#54c0ff>$&</color>";
+
+            text = Regex.Replace(text, typePattern, typeReplacement, RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Compiled);
+
+            string scriptPattern = @"[a-z/]*\.cs:[0-9]*";
+            string scriptReplacement = "<color=#54ff96>$&</color>";
+
+            text = Regex.Replace(text, scriptPattern, scriptReplacement, RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Compiled);
+
+            return text;
         }
     }
 }
