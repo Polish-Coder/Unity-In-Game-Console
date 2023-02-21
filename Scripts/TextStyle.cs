@@ -42,15 +42,27 @@ namespace InGameConsole
 
         public static string Stacktrace(string text)
         {
-            string typePattern = @"[(][a-z]+[)]";
-            string typeReplacement = "<color=#54c0ff>$&</color>";
+            text = Default(text);
+            
+            const string typePattern = @"[(][a-z]+[)]";
+            const string typeReplacement = "<color=#54c0ff>$&</color>";
 
             text = Regex.Replace(text, typePattern, typeReplacement, RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Compiled);
 
-            string scriptPattern = @"[a-z/]*\.cs:[0-9]*";
-            string scriptReplacement = "<color=#54ff96>$&</color>";
+            const string scriptPattern = @"[a-z/]*\.cs:[0-9]*";
+            const string scriptReplacement = "<color=#54ff96>$&</color>";
 
             text = Regex.Replace(text, scriptPattern, scriptReplacement, RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Compiled);
+
+            const string classPatter = @"[a-z]*[+.]";
+            const string classReplacement = "<color=#38c7b3>$&</color>";
+            
+            text = Regex.Replace(text, classPatter, classReplacement, RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Compiled);
+            
+            const string functionPatter = @"[a-z]*[ (]+[)]";
+            const string functionReplacement = "<color=#1dc2d1>$&</color>";
+            
+            text = Regex.Replace(text, functionPatter, functionReplacement, RegexOptions.IgnoreCase | RegexOptions.Multiline | RegexOptions.Compiled);
 
             return text;
         }
