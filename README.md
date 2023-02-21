@@ -6,9 +6,9 @@ This is a simple in-game console for Unity games. It allows you to easily add co
 
 - Easy creation of custom commands
 - Simple configuration
-- Stacktrace output
+- Stacktrace output with syntax highlight
 
-![Console](https://i.imgur.com/xoqeifI.png)
+![Console](https://i.imgur.com/7Dk53pf.png)
 
 ## Getting started
 
