@@ -34,9 +34,11 @@ namespace InGameConsole
             
             Commands = new List<Command>();
             RegisterCommands();
+
+            Setup();
         }
 
-        private void Start()
+        private void Setup()
         {
             _input = transform.Find("Console/Input Field").GetComponent<TMP_InputField>();
             _output = transform.Find("Console/Output Field/Content/Text").GetComponent<TMP_Text>();
